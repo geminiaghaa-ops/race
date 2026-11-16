@@ -1,0 +1,19 @@
+POST /app/v1/Transfer/DoTransfer HTTP/2
+Host: api.dev.oceantim.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.9
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Content-Length: 146
+Referer: https://app.dev.oceantim.com/
+X-Device-Session: eyJhbGciOiJFUzI1NiIsImtpZCI6IjEiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJDYXJkQXBwIiwiaXNzIjoiY2xpZW50cy1tcyIsImV4cCI6MTc5NDg3MDM1MCwiaWF0IjoxNzk0ODQxNTUwLCJuYmYiOjE3OTQ4NDE1NTAsInN1YiI6IjYyMzgyMTIiLCJqdGkiOiI0MTUiLCJhcHAiOjUsImFtciI6InBpbiJ9.S7wa4LbWDFFbhfDoM_pG-vYC_kGxtMuDYwCCQK0jAfgZsW_QD6QWz1oCjnVvy1RKcZ7GivOQpzRAnzNRlhjy0Q
+Origin: https://app.dev.oceantim.com
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJrNzZRSzIyWk8iLCJhdWQiOlsiUFdBIl0sImV4cCI6MTc5NDg0MzMzMSwibmJmIjoxNzk0ODQxNTMxLCJpYXQiOjE3OTQ4NDE1MzEsImp0aSI6IjYxZDZiMDg0LWUwZGQtNGJlZC05NzA0LWFlY2Q3OWQ2MmM1OSIsImNlbGxwaG9uZSI6Iis5ODkwMjUyMDkwMjgifQ.BLpHECViOvO5yHTk5NC6jJCLHsMvcSoDIFZncFkfxBrbQjQp379rh91uuzlibJqm0I9DN05ioQPD6nMVESfmC6vJt7F7cMm-wmcvmHHN0AodfZOrgOakkVf_mwfJZRZX-kGVf6KfGMA67jBojKiFZ08wZtY2FvJ5Rj3oacX7vcx65Ap3H9tYdW8MXmwZsplnrdUjKr9VOLNB43JHcz5bDaZAkb-4XoNQ5UuYDWncA_qbkPg_vJkoXsWjqqGOS1tn75r8lFcjWUcYlTlp0c4R_wW--UUNG0pgOXt5H31GXq3KThfBvi1OyGqyP2vlUMO2PO4LYAfk1Sbhl9d0D0CITA
+Priority: u=0
+Te: trailers
+
+{"description":"","identifier":"09356224051","transferType":"MobileTransfer","amount":100000,"RequestCode":"405a5c97-9aa5-4f41-9b60-3a25a8a943ab"}

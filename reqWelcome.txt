@@ -1,0 +1,85 @@
+POST /s/engagement/v1/rewards/redeem HTTP/2
+Host: api.ozone.ir
+Content-Length: 25
+Sec-Ch-Ua-Platform: "Linux"
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJsWmVYMVFCSnYiLCJhdWQiOlsiUFdBIl0sImV4cCI6MTc5MTA0NjQ4NCwibmJmIjoxNzkwNDQxNjg0LCJpYXQiOjE3OTA0NDE2ODQsImp0aSI6IjdiOWQxN2MyLTk2YTQtNGFhZS05MjM0LTIxMDBiYWYxOTBkYSIsImNlbGxwaG9uZSI6Iis5ODk5NjYyMjIxNTQifQ.uCIpyPbazwy4Xn6gBQJghqvBwnh0Eev3AjnLP-IYQqGdCj0YF3-7SYT1EWz076Cdo0GyOzwCjLMZRcZHSi7Ylg
+Accept-Language: en-US,en;q=0.9
+Sec-Ch-Ua: "Chromium";v="151", "Not=A?Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
+Accept: application/json
+Content-Type: application/json
+Origin: https://beta.ozone.ir
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://beta.ozone.ir/
+Accept-Encoding: gzip, deflate, br
+Priority: u=1, i
+
+{"reward_name":"WELCOME"}
+
+
+
+
+
+
+-----
+
+
+
+
+vocher off
+
+POST /api/v1/SegmentTypes/ValidateSegmentsAndVouchers HTTP/2
+Host: upg.ozone.ir
+Cookie: bob_device_id=7ddd1213-f80f-47d0-9a44-44bbefd0b93d; bob_user_id=09025209028; bob_anonymous_id=29c5c9a9-10be-4160-9db3-c3fc3b70eb6d; anonymous_id=29c5c9a9-10be-4160-9db3-c3fc3b70eb6d
+Content-Length: 3269
+Sec-Ch-Ua-Platform: "Linux"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4OWJiZjI1MS02OGM0LThlNzctNzVmZS1iMWQxODI2NjBhNmEiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvIiwiaWF0IjoxNzkwNTg5NTI0LCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjM5ODNhMjIyLTQyZTYtNGUxZC05ODVhLTkzZWNiNzJmM2MzZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdXNlcmRhdGEiOiIwOzEyODkzNTQ4OzA7MDtJRjgwRVExMU5IMzRNOVk3UzdaT0FCNEVQUkUzRzhXNUVQTjdQSzdEMU5GRlVTQVNQOTsxMDU3IiwibmJmIjoxNzkwNTg5NTI0LCJleHAiOjE3OTA1OTEzMjQsImF1ZCI6IkFueSJ9.kiZ5tiDaCpn2kC2EisNdc9qYnOPCWJfJ1KLQqIRjsO0
+Cache-Control: no-cache
+Accept-Language: en-US,en;q=0.9
+Sec-Ch-Ua: "Chromium";v="151", "Not=A?Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Origin: https://upg.ozone.ir
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://upg.ozone.ir/?pgc=4Q1UR2LDM4YNGJSK85UWWFOSX3PYLXPVVVIIM3RTHID10T2HAQ
+Accept-Encoding: gzip, deflate, br
+Priority: u=1, i
+
+{"selectedSegments":[],"lastSelectedSegment":{},"notSelectedSegments":[{"segmentId":40341399,"upgTitle":"حساب اوزون","balance":480000,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/ozonecard.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":true,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":false},{"segmentId":41595997,"upgTitle":"کپسول اوزون","balance":113210,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/capsule.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":false,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":true},{"segmentId":49552624,"upgTitle":"الان بخر، بعدا پرداخت کن","balance":5000000,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/bnpl/ozone.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":false,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":true}],"selectedVouchers":[],"notSelectedVouchers":[{"voucherId":111516272,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516273,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516274,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516275,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516298,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516300,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516302,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516303,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true},{"voucherId":111516305,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":true}],"lastSelectedVoucher":{}}
+
+
+
+------
+vocher on 
+
+
+
+POST /api/v1/SegmentTypes/ValidateSegmentsAndVouchers HTTP/2
+Host: upg.ozone.ir
+Cookie: bob_device_id=7ddd1213-f80f-47d0-9a44-44bbefd0b93d; bob_user_id=09025209028; bob_anonymous_id=29c5c9a9-10be-4160-9db3-c3fc3b70eb6d; anonymous_id=29c5c9a9-10be-4160-9db3-c3fc3b70eb6d
+Content-Length: 3301
+Sec-Ch-Ua-Platform: "Linux"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4OWJiZjI1MS02OGM0LThlNzctNzVmZS1iMWQxODI2NjBhNmEiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvIiwiaWF0IjoxNzkwNTg5NTI0LCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjAiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3NlcmlhbG51bWJlciI6IjM5ODNhMjIyLTQyZTYtNGUxZC05ODVhLTkzZWNiNzJmM2MzZSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdXNlcmRhdGEiOiIwOzEyODkzNTQ4OzA7MDtJRjgwRVExMU5IMzRNOVk3UzdaT0FCNEVQUkUzRzhXNUVQTjdQSzdEMU5GRlVTQVNQOTsxMDU3IiwibmJmIjoxNzkwNTg5NTI0LCJleHAiOjE3OTA1OTEzMjQsImF1ZCI6IkFueSJ9.kiZ5tiDaCpn2kC2EisNdc9qYnOPCWJfJ1KLQqIRjsO0
+Cache-Control: no-cache
+Accept-Language: en-US,en;q=0.9
+Sec-Ch-Ua: "Chromium";v="151", "Not=A?Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Content-Type: application/json
+Origin: https://upg.ozone.ir
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: https://upg.ozone.ir/?pgc=4Q1UR2LDM4YNGJSK85UWWFOSX3PYLXPVVVIIM3RTHID10T2HAQ
+Accept-Encoding: gzip, deflate, br
+Priority: u=1, i
+
+{"selectedSegments":[],"lastSelectedSegment":{},"notSelectedSegments":[{"segmentId":40341399,"upgTitle":"حساب اوزون","balance":480000,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/ozonecard.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":true,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":false},{"segmentId":41595997,"upgTitle":"کپسول اوزون","balance":113210,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/capsule.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":false,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":false},{"segmentId":49552624,"upgTitle":"الان بخر، بعدا پرداخت کن","balance":5000000,"upgLogo":"https://cdn.ozone.ir/new-segment-logos/bnpl/ozone.svg","expirationDateTime":null,"cardNumber":null,"isMainSegment":false,"segmentAdditionalInfo":null,"selected":false,"usageBalance":0,"isEdited":false,"isDisable":false}],"selectedVouchers":[],"notSelectedVouchers":[{"voucherId":111516272,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516273,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516274,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516275,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516298,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516300,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516302,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516303,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false},{"voucherId":111516305,"discountPrice":1132100,"discountTitle":"تخفیف 10 درصدی","expirationDate":1793019709,"upgLogo":null,"voucherRuleTypeTitle":"کوپن خوش‌آمد گویی","selected":false,"usageBalance":0,"isDisable":false}],"lastSelectedVoucher":{"voucherId":111516307}}
