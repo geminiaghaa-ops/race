@@ -54,6 +54,8 @@ import ssl
 import sys
 import threading
 import time
+import gzip
+import zlib
 
 try:
     import h2.connection
@@ -63,6 +65,24 @@ try:
     HAVE_H2 = True
 except ImportError:
     HAVE_H2 = False
+
+# Optional response-decompression backends (Content-Encoding: br / zstd).
+# gzip/deflate are handled by the stdlib; br/zstd need these packages.
+try:
+    import brotli
+    HAVE_BROTLI = True
+except ImportError:
+    try:
+        import brotlicffi as brotli  # drop-in alternative
+        HAVE_BROTLI = True
+    except ImportError:
+        HAVE_BROTLI = False
+
+try:
+    import zstandard
+    HAVE_ZSTD = True
+except ImportError:
+    HAVE_ZSTD = False
 
 
 # ---------------------------------------------------------------------------
@@ -454,20 +474,108 @@ def _truncate(text, limit):
     return text
 
 
+def _decompress(body: bytes, encoding: str) -> bytes:
+    """Decode a Content-Encoding value (possibly a comma-separated chain)."""
+    for enc in reversed([e.strip().lower() for e in encoding.split(",") if e.strip()]):
+        if enc in ("", "identity"):
+            continue
+        if enc in ("gzip", "x-gzip"):
+            body = gzip.decompress(body)
+        elif enc == "deflate":
+            try:
+                body = zlib.decompress(body)          # zlib-wrapped
+            except zlib.error:
+                body = zlib.decompress(body, -zlib.MAX_WBITS)  # raw deflate
+        elif enc == "br":
+            if not HAVE_BROTLI:
+                raise RuntimeError("brotli not installed (pip install brotli)")
+            body = brotli.decompress(body)
+        elif enc == "zstd":
+            if not HAVE_ZSTD:
+                raise RuntimeError("zstandard not installed (pip install zstandard)")
+            body = zstandard.ZstdDecompressor().decompress(body)
+        else:
+            raise RuntimeError(f"unknown content-encoding: {enc!r}")
+    return body
+
+
+def _decode_body(body: bytes, encoding: str) -> str:
+    """Decompress per Content-Encoding (if any), then decode to text.
+
+    On failure (e.g. a truncated body, or a missing codec) it degrades to the
+    raw bytes with an inline note instead of dumping binary garbage.
+    """
+    if encoding and encoding.strip().lower() != "identity":
+        try:
+            body = _decompress(body, encoding)
+        except Exception as e:
+            return (f"[!] could not decompress Content-Encoding: {encoding} "
+                    f"({e}); showing raw bytes below]\n"
+                    + body.decode("utf-8", errors="replace"))
+    return body.decode("utf-8", errors="replace")
+
+
+def _parse_h1_headers(head: bytes) -> dict:
+    """Last-value-wins header map from a raw HTTP/1.1 header block."""
+    hdrs = {}
+    for line in head.split(b"\r\n")[1:]:
+        name, sep, value = line.partition(b":")
+        if sep:
+            hdrs[name.decode(errors="ignore").strip().lower()] = \
+                value.decode(errors="ignore").strip()
+    return hdrs
+
+
+def _dechunk(body: bytes) -> bytes:
+    """Decode HTTP/1.1 chunked transfer-encoding; tolerant of truncation."""
+    out = bytearray()
+    i, n = 0, len(body)
+    while i < n:
+        j = body.find(b"\r\n", i)
+        if j == -1:
+            break
+        size_line = body[i:j].split(b";", 1)[0].strip()  # ignore chunk-ext
+        try:
+            size = int(size_line, 16)
+        except ValueError:
+            break
+        if size == 0:
+            break
+        start = j + 2
+        end = start + size
+        if end > n:
+            out += body[start:n]  # truncated final chunk: keep what we have
+            break
+        out += body[start:end]
+        i = end + 2  # skip the chunk's trailing CRLF
+    return bytes(out)
+
+
 def format_response(status, body, headers, max_body):
     """Reconstruct a human-readable response from either engine."""
     if headers is not None:
-        # HTTP/2: rebuild status line + headers, then the DATA body.
+        # HTTP/2: rebuild status line + headers, then the (decoded) DATA body.
+        enc = ""
         lines = [f":status {status}"]
         for k, v in headers:
             if k == ":status":
                 continue
+            if k.lower() == "content-encoding":
+                enc = v
             lines.append(f"{k}: {v}")
         head = "\r\n".join(lines)
-        text = head + "\r\n\r\n" + body.decode("utf-8", errors="replace")
+        text = head + "\r\n\r\n" + _decode_body(body, enc)
     else:
         # HTTP/1.1: body already contains the full raw response.
-        text = body.decode("utf-8", errors="replace")
+        head, sep, raw_body = body.partition(b"\r\n\r\n")
+        if sep:
+            hdrs = _parse_h1_headers(head)
+            if "chunked" in hdrs.get("transfer-encoding", "").lower():
+                raw_body = _dechunk(raw_body)
+            text = (head.decode("utf-8", errors="replace") + "\r\n\r\n"
+                    + _decode_body(raw_body, hdrs.get("content-encoding", "")))
+        else:
+            text = body.decode("utf-8", errors="replace")
     return _truncate(text, max_body)
 
 
